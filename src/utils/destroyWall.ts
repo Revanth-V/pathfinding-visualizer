@@ -9,17 +9,22 @@ export const destroyWall = async (
   isRight: number,
   speed: SpeedType
 ) => {
+  const updateTileClass = async (r: number, c: number) => {
+    const element = document.getElementById(`${r}-${c}`);
+    if (element) {
+      element.className = TILE_STYLE;
+      await sleep(20 * SPEEDS.find((s) => s.value === speed)!.value - 5);
+    }
+  };
+
   if (isRight && grid[row][col + 1]) {
     grid[row][col + 1].isWall = false;
-    document.getElementById(`${row}-${col + 1}`)!.className = TILE_STYLE;
-    await sleep(20 * SPEEDS.find((s) => s.value === speed)!.value - 5);
+    await updateTileClass(row, col + 1);
   } else if (grid[row + 1]) {
     grid[row + 1][col].isWall = false;
-    document.getElementById(`${row + 1}-${col}`)!.className = TILE_STYLE;
-    await sleep(20 * SPEEDS.find((s) => s.value === speed)!.value - 5);
+    await updateTileClass(row + 1, col);
   } else {
     grid[row][col].isWall = false;
-    document.getElementById(`${row}-${col}`)!.className = TILE_STYLE;
-    await sleep(20 * SPEEDS.find((s) => s.value === speed)!.value - 5);
+    await updateTileClass(row, col);
   }
 };

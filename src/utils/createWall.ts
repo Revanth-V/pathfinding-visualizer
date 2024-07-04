@@ -18,9 +18,10 @@ export const createWall = (
             !isRowColEqual(row, col, endTile)
           ) {
             setTimeout(() => {
-              document.getElementById(
-                `${row}-${col}`
-              )!.className = `${WALL_TILE_STYLE} animate-wall`;
+              const element = document.getElementById(`${row}-${col}`);
+              if (element) {
+                element.className = `${WALL_TILE_STYLE} animate-wall`;
+              }
             }, delay * col);
           }
         }
