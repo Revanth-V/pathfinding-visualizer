@@ -51,7 +51,7 @@ export function Grid({
         `lg:min-h-[${MAX_ROWS * 17}px]  md:min-h-[${
           MAX_ROWS * 15
         }px] xs:min-h-[${MAX_ROWS * 8}px] min-h-[${MAX_ROWS * 7}px]`,
-        // Controlling Grid width
+        // Controlling grid width
         `lg:w-[${MAX_COLS * 17}px] md:w-[${MAX_COLS * 15}px] xs:w-[${
           MAX_COLS * 8
         }px] w-[${MAX_COLS * 7}px]`
@@ -75,7 +75,7 @@ export function Grid({
                 handleMouseDown={() => handleMouseDown(row, col)}
                 handleMouseUp={() => handleMouseUp(row, col)}
                 handleMouseEnter={() => handleMouseEnter(row, col)}
-              ></Tile>
+              />
             );
           })}
         </div>

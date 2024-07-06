@@ -27,7 +27,7 @@ export async function verticalDivision({
   const makeWallAt = col + getRandInt(0, width - 1) * 2 + 1; // Determine the column to place the wall
   const makePassageAt = row + getRandInt(0, height) * 2; // Determine the row to leave a passage
 
-  for (let i = 0; i < 2 * height - 1; i++) {
+  for (let i = 0; i < 2 * height - 1; i += 1) {
     // Create the vertical wall
     if (makePassageAt !== row + i) {
       if (
@@ -37,10 +37,7 @@ export async function verticalDivision({
         grid[row + i][makeWallAt].isWall = true; // Set the current tile as a wall
 
         const element = document.getElementById(`${row + i}-${makeWallAt}`);
-        // Add wall style and animation
-        if (element) {
-          element.className = `${WALL_TILE_STYLE} animate-wall`;
-        }
+        if (element) element.className = `${WALL_TILE_STYLE} animate-wall`;
         await sleep(10 * SPEEDS.find((s) => s.value === speed)!.value - 5); // Wait for animation
       }
     }

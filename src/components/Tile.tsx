@@ -1,7 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import {
   END_TILE_STYLE,
-  MAX_COLS,
   MAX_ROWS,
   PATH_TILE_STYLE,
   START_TILE_STYLE,

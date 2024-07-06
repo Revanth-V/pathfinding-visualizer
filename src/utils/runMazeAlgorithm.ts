@@ -19,7 +19,7 @@ export const runMazeAlgorithm = async ({
   setIsDisabled: (isDisabled: boolean) => void;
   speed: SpeedType;
 }) => {
-  if (maze === "BINARY_TREE") {
+  if (maze == "BINARY_TREE") {
     await binaryTree(grid, startTile, endTile, setIsDisabled, speed);
   } else if (maze === "RECURSIVE_DIVISION") {
     const currentSpeed = SPEEDS.find((s) => s.value === speed)!.value ?? 2;
@@ -31,7 +31,7 @@ export const runMazeAlgorithm = async ({
       row: 1,
       col: 1,
       height: Math.floor((MAX_ROWS - 1) / 2),
-      width: Math.floor(MAX_COLS / 2),
+      width: Math.floor((MAX_COLS - 1) / 2),
       setIsDisabled,
       speed,
     });
