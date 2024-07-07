@@ -59,7 +59,7 @@ export function Tile({
   return (
     <div
       className={twMerge(tileTypeStyle, borderStyle, edgeStyle)}
-      id={`${row} - ${col}`}
+      id={`${row}-${col}`}
       onMouseDown={() => handleMouseDown(row, col)}
       onMouseUp={() => handleMouseUp(row, col)}
       onMouseEnter={() => handleMouseEnter(row, col)}
